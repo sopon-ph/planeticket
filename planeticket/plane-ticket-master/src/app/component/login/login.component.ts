@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
                 this.local.set('customer',this.dataUser,1,'w');
                 this.loginPass = true;
                 alert("i see!");
+                this.router.navigate(['/home']);
+
             }
           },
           error => {

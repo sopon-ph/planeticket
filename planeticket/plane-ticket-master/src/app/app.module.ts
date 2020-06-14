@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { AnvbarComponent } from './component/anvbar/anvbar.component';
 import { SingupComponent } from './component/singup/singup.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AnvbarComponent,
-    SingupComponent
+    SingupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
