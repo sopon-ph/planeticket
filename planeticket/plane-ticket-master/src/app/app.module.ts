@@ -13,6 +13,7 @@ import { AnvbarComponent } from './component/anvbar/anvbar.component';
 import { SingupComponent } from './component/singup/singup.component';
 import { HomeComponent } from './component/home/home.component';
 import { SearchComponent } from './component/search/search.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SearchComponent } from './component/search/search.component';
     ReactiveFormsModule,
     FormsModule,
     Ng2SearchPipeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
