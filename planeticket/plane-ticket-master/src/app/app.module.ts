@@ -12,6 +12,7 @@ import { LoginComponent } from './component/login/login.component';
 import { AnvbarComponent } from './component/anvbar/anvbar.component';
 import { SingupComponent } from './component/singup/singup.component';
 import { HomeComponent } from './component/home/home.component';
+import { SearchComponent } from './component/search/search.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomeComponent } from './component/home/home.component';
     LoginComponent,
     AnvbarComponent,
     SingupComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
