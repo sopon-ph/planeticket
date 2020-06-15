@@ -1,0 +1,26 @@
+<div class="table-responsive-md">
+    <table class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+            <tr>
+                <th>ID.</th>
+                <th>ต้นทาง</th>
+                <th>ปลายทาง</th>
+                <th>ราคา</th>
+                <th>Add to Cart</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of getPlane(); index as i">
+                <td scope="row">{{item.id}}</td>
+                <td>{{item.start}}</td>
+                <td>{{item.finish}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                    <a class="btn btn-outline-primary" role="button">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ 

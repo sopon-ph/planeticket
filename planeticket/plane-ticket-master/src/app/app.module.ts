@@ -14,6 +14,7 @@ import { SingupComponent } from './component/singup/singup.component';
 import { HomeComponent } from './component/home/home.component';
 import { SearchComponent } from './component/search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ShowplaneComponent } from './component/showplane/showplane.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AnvbarComponent,
     SingupComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    ShowplaneComponent
   ],
   imports: [
     BrowserModule,
