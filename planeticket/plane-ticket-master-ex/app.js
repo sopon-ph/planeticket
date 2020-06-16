@@ -47,6 +47,7 @@ const getTheResult = async() => {
     }
 }
 
+require('./app/routes/flight.routes')(expressApp);
 
 require("./app/routes/register.routes")(expressApp);
 expressApp.listen(3000, function() {

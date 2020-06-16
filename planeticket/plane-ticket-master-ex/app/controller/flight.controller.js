@@ -59,3 +59,29 @@ exports.deleteAll = () => {
         .catch(err => {});
     return true;
 };
+const getFlight =() => {
+    return new Promise ((resolve, reject) =>{
+        Flight.find({}, (err, data) => {
+            if(err){
+                reject(new Error('Cannont get products!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannont get products!'));
+                }
+            }
+        })
+    });
+}
+exports.findAll = ( (req, res) => {
+    console.log('get');
+    getFlight()
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});

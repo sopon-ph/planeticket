@@ -7,7 +7,7 @@ module.exports = app => {
     //router.post("/", register.create);
 
     // Retrieve all Tutorials
-    //router.get("/", register.findAll);
+    router.get("/get", flight.findAll);
 
     // Retrieve a single Tutorial with id
     //router.get("/:username/:password", register.findUsername);
@@ -18,5 +18,5 @@ module.exports = app => {
     // Delete a Tutorial with id
     //router.delete("/:id", register.delete);
 
-    app.use('/api/flight', router);
+    app.use('/flight', router);
 };

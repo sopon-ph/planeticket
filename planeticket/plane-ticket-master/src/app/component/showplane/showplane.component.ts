@@ -19,13 +19,30 @@ export class ShowplaneComponent implements OnInit {
   Tstatus : boolean = true
   Fstatus: boolean = false
   fnum:number
-  constructor(private getPlaneService : GetplaneService,public local: LocalStorageService,private router: Router) { }
+
+  flight: any
+  constructor(private getPlaneService : GetplaneService,public local: LocalStorageService,private router: Router) { 
+    this.onLoading();
+  }
 
   ngOnInit(): void {
   }
+  onLoading(){
+    try {
+        this.getPlaneService.getFlight().subscribe (
+            data => {
+            this.flight = data;
+            },
+            err => {
+                console.log(err)
+            });
+    }catch (error) {
+        console.log(error)
+    }
+  }
 
   getPlane(){
-    return this.getPlaneService.getAll(); 
+    return this.getPlaneService.getFlight(); 
   }
   usePlane(id:number){
     this.data = this.getPlaneService.getSome(id);
