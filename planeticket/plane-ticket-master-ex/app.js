@@ -2,6 +2,7 @@ const expressFunction = require('express');
 const expressApp = expressFunction();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const flight = require('./app/controller/flight.controller')
 
 var corsOptions = {
     origin: "http://localhost:4200"
@@ -30,13 +31,21 @@ db.mongoose
         useCreateIndex: true
     })
     .then(() => {
+        getTheResult();
         console.log("Connected to the database!");
     })
     .catch(err => {
         console.log("Cannot connect to the database!", err);
         process.exit();
     });
-
+const getTheResult = async() => {
+    let auth = await flight.deleteAll();
+        //console.log(auth)
+    if (auth == true) {
+        const data = await flight.create();
+        console.log(data);
+    }
+}
 
 
 require("./app/routes/register.routes")(expressApp);

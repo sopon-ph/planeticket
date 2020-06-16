@@ -131,7 +131,7 @@ exports.update = (req, res) => {
         return res.status(400).send({
             message: "Data to update can not be empty!"
         });
-    }
+    } 
 
     const id = req.params.id;
 

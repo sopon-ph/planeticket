@@ -10,7 +10,7 @@ module.exports = mongoose => {
         tel: { type: String, required: true },
         Hnum: { type: String },
         province: { type: String },
-        district: { type: String },
+        district: { type: String }, 
         parish: { type: String },
         zip: { type: String },
         date: { type: Date, default: Date.now }
