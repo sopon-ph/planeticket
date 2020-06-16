@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {GetplaneService } from '../../service/getplane.service'
 import { LocalStorageService } from 'angular-web-storage';
 import { Router } from '@angular/router';
 import { PlaneAr } from '../../plane.model'
+
+import{ BuyseatComponent } from '../buyseat/buyseat.component'
 
 @Component({
   selector: 'app-showplane',
@@ -11,8 +13,12 @@ import { PlaneAr } from '../../plane.model'
 })
 export class ShowplaneComponent implements OnInit {
 
-
+  @ViewChild(BuyseatComponent)
+  buyseat:BuyseatComponent
   data : PlaneAr
+  Tstatus : boolean = true
+  Fstatus: boolean = false
+  fnum:number
   constructor(private getPlaneService : GetplaneService,public local: LocalStorageService,private router: Router) { }
 
   ngOnInit(): void {
@@ -23,7 +29,16 @@ export class ShowplaneComponent implements OnInit {
   }
   usePlane(id:number){
     this.data = this.getPlaneService.getSome(id);
-    alert('Use flight '+this.data.id)
+    alert('Work!!')
+    this.Tstatus = false
+    this.Fstatus = true
+    this.fnum = id
   }
-
-} 
+  recieveData($e){
+    let num = $e;
+    this.getPlaneService.flight[this.fnum].seat[num].status = true
+    alert('Buy Complete On' +this.data.price +' Bath')
+    this.Tstatus = true
+    this.Fstatus = false
+  }
+}    

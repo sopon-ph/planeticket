@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
               if(this.dataUser.status == true){
                 this.local.set('customer',this.dataUser,1,'w');
                 this.loginPass = true;
-                alert("i see!");
+                alert("Login Complete!!!!");
                 this.router.navigate(['/home']);
 
             }

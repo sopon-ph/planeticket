@@ -15,6 +15,7 @@ import { HomeComponent } from './component/home/home.component';
 import { SearchComponent } from './component/search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShowplaneComponent } from './component/showplane/showplane.component';
+import { BuyseatComponent } from './component/buyseat/buyseat.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ShowplaneComponent } from './component/showplane/showplane.component';
     SingupComponent,
     HomeComponent,
     SearchComponent,
-    ShowplaneComponent
+    ShowplaneComponent,
+    BuyseatComponent
   ],
   imports: [
     BrowserModule,

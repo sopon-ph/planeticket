@@ -1,0 +1,23 @@
+<div class="table-responsive-md">
+    <table class="table table-striped table-inverse">
+        <thead class="thead-inverse">
+            <tr>
+                <th>ที่นั่ง</th> 
+                <th>สถานะ</th>
+                <th>ซื้อตั๋ว</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of getSeat(); index as i">
+                <td scope="row">{{item.no}}</td>
+                <td>{{item.status? 'sold out':'on sell'}}</td>
+                <td>
+                    <a class="btn btn-outline-primary" role="button" *ngIf  = "!item.status" (click)="buyTicket(i)">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                    <a class="btn btn-outline-primary" role="button" *ngIf  = "item.status">
+                        Sold out</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
