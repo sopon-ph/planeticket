@@ -1,32 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand text-white" [routerLink]="['/home']">
-      Plane Ticket
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav mr-auto">
-  </ul>
-      <ul class="navbar-nav">
-        <li>
-          <a class="nav-link" [routerLink]="['/']">หน้าแรก</a>
-        </li>
-        <li>
-          <a class="nav-link" [routerLink]="['/profile']">โปรไฟล์</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" readonly>สวัสดี! คุณ {{getUsername()}}</a>
-        </li>
-        <li>
-            <form class="ml-md-2 my-2 my-lg-0">
-                <button type="button" (click)="Logout()" class="btn btn-danger">ออกจากระบบ</button>
-            </form>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<app-anvbar></app-anvbar> 
 
 
   <div class="contaieenr-fluid text-center mce-fixed-width"  >

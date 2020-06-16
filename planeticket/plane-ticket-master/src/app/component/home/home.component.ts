@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LocalStorageService } from 'angular-web-storage';
 
 @Component({
   selector: 'app-home',
@@ -13,18 +11,9 @@ export class HomeComponent implements OnInit {
   alldata: any;
   term: string;
   token: string;
-  constructor(private router: Router, public local: LocalStorageService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
- 
-
-  Logout(){
-    this.local.remove('customer');
-    this.router.navigate(['/login']);
-  }
-  getUsername(){
-    let user = this.local.get('customer').result.username;
-    return user;
-  }
 }
+ 
