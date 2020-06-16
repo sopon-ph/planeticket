@@ -7,4 +7,4 @@ interface Plane{
     seat: SeatOut;
 }
 export type PlaneOut = Plane[];
-export type PlaneAr = Plane;
+export type PlaneAr = Plane; 
