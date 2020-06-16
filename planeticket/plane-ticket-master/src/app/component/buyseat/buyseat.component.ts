@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PlaneAr } from '../../plane.model'
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-buyseat',
@@ -10,7 +11,7 @@ export class BuyseatComponent implements OnInit {
   @Input() flight : PlaneAr
   seatnum : number
   @Output() messege = new EventEmitter<number>();
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
@@ -20,9 +21,10 @@ export class BuyseatComponent implements OnInit {
   checkSeat(i:number){
     let seatStatus = this.flight.seat[i].status
   }
-  buyTicket(i){
-    this.seatnum = i
+  buyTicket(id: number){
+    this.seatnum = id
     this.messege.emit(this.seatnum);
+    this.cartService.add(id);
   }
 
 }
