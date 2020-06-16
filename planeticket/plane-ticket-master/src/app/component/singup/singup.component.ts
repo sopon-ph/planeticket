@@ -17,7 +17,6 @@ export class SingupComponent implements OnInit {
     username: new FormControl(''),
     password: new FormControl('',[Validators.required, Validators.pattern(this.unamePattern)]),
     sex: new FormControl(''),
-    check: new FormControl(''),
     email: new FormControl('',[Validators.required, Validators.email]),
     tel: new FormControl('',[Validators.required, Validators.min(10)]),
     address: new FormGroup({ 
@@ -35,7 +34,6 @@ export class SingupComponent implements OnInit {
   ngOnInit(): void {
   }
   saveRegister() {
-    if(this.registerForm.value.check == true){
     const data = {
       firstName: this.registerForm.value.firstName,
       lastName: this.registerForm.value.lastName,
@@ -57,14 +55,11 @@ export class SingupComponent implements OnInit {
         response => {
           console.log(response);
           this.submitted = true;
-          alert("Save Success!")
+          alert("Save Success!");
           this.registerForm.reset();
         },
         error => {
           console.log(error);
         });
-      }else {
-        alert("No Confrim");
-      }
-  } 
+  }
 }
