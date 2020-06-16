@@ -12,12 +12,12 @@ export class CartService {
 
   constructor(private getplaneService:GetplaneService) { }
 
-  add(id: number){
-    console.log('Add product id: '+id+' to cart');
-    this.cart.push(this.getplaneService.getSome(id));
-    this.sumPrice += this.getplaneService.getSome(id).price
-    this.counter = this.cart.length;
-  }
+  //add(id: number){
+    //console.log('Add product id: '+id+' to cart');
+    //this.cart.push(this.getplaneService.getSome(id));
+    //this.sumPrice += this.getplaneService.getSome(id).price
+    //this.counter = this.cart.length;
+  //}
   getCounter(){
     return this.counter;
   }

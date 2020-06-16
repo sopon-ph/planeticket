@@ -9,7 +9,7 @@ const baseUrLogin = 'http://localhost:3000/api/register/login';
 export class SingupService {
 
   constructor(private http: HttpClient) { }
-
+ 
   getAll() {
     return this.http.get(baseUrl);
   }

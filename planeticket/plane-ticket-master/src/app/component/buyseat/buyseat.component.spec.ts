@@ -21,5 +21,5 @@ describe('BuyseatComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  }); 
 });

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { PlaneAr } from '../../plane.model'
 import { CartService } from 'src/app/service/cart.service';
 
 @Component({
@@ -8,23 +7,24 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./buyseat.component.css']
 })
 export class BuyseatComponent implements OnInit {
-  @Input() flight : PlaneAr
+  @Input() flight : any
   seatnum : number
+  Seat:any;
   @Output() messege = new EventEmitter<number>();
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService) { } 
 
   ngOnInit(): void {
   }
   getSeat(){
-    return this.flight.seat;
+    return this.flight;
   }
   checkSeat(i:number){
     let seatStatus = this.flight.seat[i].status
   }
   buyTicket(id: number){
     this.seatnum = id
-    this.messege.emit(this.seatnum);
-    this.cartService.add(id);
+    //this.messege.emit(this.seatnum);
+    //this.cartService.add(id);
   }
 
 }

@@ -29,14 +29,13 @@ exports.create = (status) => {
         const new_flight = new Flight({
             id : flightPlane[i].id,
             start : flightPlane[i].start,
-            finish : flightPlane[i].finish,
-            //seat : flightPlane[i].seat
-        }
-        );
+            finish : flightPlane[i].finish
+        });
         new_flight.save(new_flight).catch(err =>{
             console.log(err)
         });
-        for(let x = 0;x<seat.length;x++){
+
+        for(let x = 0 ; x < seat.length ; x++){
             const newSeat = new Seat({
                 no : seat[x].no,
                 status:seat[x].status,
@@ -56,12 +55,15 @@ exports.create = (status) => {
 exports.deleteAll = () => {
     Flight.deleteMany({})
         .then(data => {})
-        .catch(err => {});
+        .catch(err => {}),
+    Seat.deleteMany({})
+    .then(data => {})
+    .catch(err => {});
     return true;
 };
 const getFlight =() => {
     return new Promise ((resolve, reject) =>{
-        Flight.find({}, (err, data) => {
+       Flight.find({}, (err, data) => {
             if(err){
                 reject(new Error('Cannont get products!'));
             }else{
@@ -71,12 +73,39 @@ const getFlight =() => {
                     reject(new Error('Cannont get products!'));
                 }
             }
-        })
+        }).sort({id:1})
+    });
+} 
+const getSeat =(id) => {
+    return new Promise ((resolve, reject) =>{
+    console.log(id)
+       Seat.find({f_id:Number(id)}, (err, data) => {
+            if(err){
+                reject(new Error('Cannont get products!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannont get products!'));
+                }
+            }
+        }).sort({no:1})
     });
 }
 exports.findAll = ( (req, res) => {
     console.log('get');
     getFlight()
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+});
+exports.findSeat = ( (req, res) => {
+    console.log('getSeat');
+    getSeat(req.params.id)
         .then(result => {
             console.log(result);
             res.status(200).json(result);

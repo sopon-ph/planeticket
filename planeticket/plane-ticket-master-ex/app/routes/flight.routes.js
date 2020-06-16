@@ -7,7 +7,8 @@ module.exports = app => {
     //router.post("/", register.create);
 
     // Retrieve all Tutorials
-    router.get("/get", flight.findAll);
+    router.get("/get", flight.findAll); 
+    router.get('/seat/:id',flight.findSeat);
 
     // Retrieve a single Tutorial with id
     //router.get("/:username/:password", register.findUsername);
