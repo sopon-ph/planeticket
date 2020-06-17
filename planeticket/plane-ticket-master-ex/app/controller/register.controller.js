@@ -42,6 +42,8 @@ exports.create = (req, res) => {
                 check: req.body.check,
                 email: req.body.email,
                 tel: req.body.tel,
+                img: req.body.img,
+                file: req.body.file,
                 Hnum: req.body.Hnum,
                 province: req.body.province,
                 district: req.body.district,

@@ -8,6 +8,8 @@ module.exports = mongoose => {
         check: { type: Boolean },
         email: { type: String, required: true, unique: true },
         tel: { type: String, required: true },
+        img: {type: String},
+        file: {type: String},
         Hnum: { type: String },
         province: { type: String },
         district: { type: String }, 
