@@ -16,6 +16,7 @@ import { SearchComponent } from './component/search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShowplaneComponent } from './component/showplane/showplane.component';
 import { BuyseatComponent } from './component/buyseat/buyseat.component';
+import { PromotionComponent } from './component/promotion/promotion.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BuyseatComponent } from './component/buyseat/buyseat.component';
     HomeComponent,
     SearchComponent,
     ShowplaneComponent,
-    BuyseatComponent
+    BuyseatComponent,
+    PromotionComponent
   ],
   imports: [
     BrowserModule,
