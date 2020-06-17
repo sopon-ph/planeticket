@@ -117,7 +117,17 @@ const buySeat =(id) => {
        Seat.updateOne({id:Number(id)}, { $set: {status:true} }, function(err, res) {
         if (err) throw err;
         console.log("1 document updated");
-        
+        Seat.find({id:Number(id)}, (err, data) => {
+            if(err){
+                reject(new Error('Cannont get products!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannont get products!'));
+                }
+            } 
+        })
         //res.sent('complete')
         //resolve([])
         //fineOneSeat(id);
@@ -150,6 +160,13 @@ exports.findSeat = ( (req, res) => {
 });
 exports.buySeat = ( (req, res) => {
     console.log('changeStatusSeat');
-    buySeat(req.body.s_id)
-    res.status(500).send({ message: "Product was updated successfully." });
+    buySeat(req.params.id)
+    .then(result => {
+        console.log(result);
+        res.status(200).json(result);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+    //res.status(500).send({ message: "Product was updated successfully." });
 });

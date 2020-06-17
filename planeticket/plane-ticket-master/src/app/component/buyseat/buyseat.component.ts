@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/service/cart.service';
+import {GetplaneService } from '../../service/getplane.service'
 
 @Component({
   selector: 'app-buyseat',

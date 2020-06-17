@@ -66,7 +66,9 @@ export class ShowplaneComponent implements OnInit {
 }
 recieveData($e){
     let num = $e;
-    this.getPlaneService.buySeat(this.data[num].id)
+    this.getPlaneService.buySeat(this.data[num].id).subscribe (
+      data => {},
+      err => {});
     //alert('Buy Complete On' +this.data[num].price+' Bath')
     this.Tstatus = true
     this.Fstatus = false

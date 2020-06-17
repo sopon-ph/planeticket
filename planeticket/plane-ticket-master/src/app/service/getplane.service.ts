@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 const urls = 'http://localhost:3000/flight/seat';
-//const urlst = 'http://localhost:3000/flight/seat/status';
+const urlst = 'http://localhost:3000/flight/status';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +10,7 @@ export class GetplaneService {
   
   flight : any;
   seat:any;
+  ssid:string
   constructor(private http: HttpClient) { }
 
   getFlight(){
@@ -37,11 +38,13 @@ export class GetplaneService {
       }));
   }
   buySeat(s_id:number){
-    alert('id '+s_id)
-    let ssid = {
-      s_id:s_id
-    }
-    return this.http.put(`${urls}`,ssid)
-   
+     this.ssid = s_id.toString()
+    return this.http.get(`${urlst}/${this.ssid}`).pipe(map(data => {
+      if (data) {
+          console.log(this.seat);
+          alert("success!")
+      }
+          return this.seat;
+      }));
   }
 }
