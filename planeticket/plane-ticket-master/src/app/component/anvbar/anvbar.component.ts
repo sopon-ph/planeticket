@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'angular-web-storage';
-import { CartService } from 'src/app/service/cart.service';
-import { GetplaneService } from 'src/app/service/getplane.service';
 import { PlaneOut } from 'src/app/plane.model';
 
 @Component({
@@ -18,8 +16,7 @@ export class AnvbarComponent implements OnInit {
 
   cart: PlaneOut =[]
 
-  constructor(private router: Router, public local: LocalStorageService,private cartService: CartService) {
-    this.cart =this.cartService.getCart();
+  constructor(private router: Router, public local: LocalStorageService) {
    }
 
   ngOnInit(): void {
@@ -31,12 +28,5 @@ export class AnvbarComponent implements OnInit {
   getUsername(){
     let user = this.local.get('customer').result.username;
     return user;
-  }
-  getCounter(){
-    return this.cartService.getCounter();
-  }
-  
-  getSumPrice(){
-    return this.cartService.getsumPrice();
   }
 }

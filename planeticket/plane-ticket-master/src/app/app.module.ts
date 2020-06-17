@@ -15,7 +15,6 @@ import { HomeComponent } from './component/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShowplaneComponent } from './component/showplane/showplane.component';
 import { BuyseatComponent } from './component/buyseat/buyseat.component';
-import { PromotionComponent } from './component/promotion/promotion.component';
 import { FlightdataComponent } from './component/flightdata/flightdata.component';
 import { ProfileComponent } from './component/profile/profile.component';
 
@@ -28,7 +27,6 @@ import { ProfileComponent } from './component/profile/profile.component';
     HomeComponent,
     ShowplaneComponent,
     BuyseatComponent,
-    PromotionComponent,
     FlightdataComponent,
     ProfileComponent
   ],

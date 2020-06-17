@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CartService } from 'src/app/service/cart.service';
 import {GetplaneService } from '../../service/getplane.service'
 
 @Component({
@@ -16,7 +15,7 @@ export class BuyseatComponent implements OnInit {
   code:string
   usePro:boolean = true
   @Output() messege = new EventEmitter<number>();
-  constructor(private cartService: CartService,private getPlaneService : GetplaneService) { } 
+  constructor(private getPlaneService : GetplaneService) { } 
 
   ngOnInit(): void {
   }

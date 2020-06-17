@@ -19,10 +19,6 @@
       <li class="nav-item">
           <a class="nav-link" readonly>สวัสดี! คุณ {{getUsername()}}</a>
       </li>
-      <a href="#" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i> กระเป๋า
-        <span class="badge badge-info">{{getCounter()}}</span>
-      </a>
       <li>
           <form class="ml-md-2 my-2 my-lg-0">
               <button type="button" (click)="Logout()" class="btn btn-danger">ออกจากระบบ</button>
@@ -31,52 +27,3 @@
     </ul>
   </div>
 </nav>
-
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-          <!-- Modal Header -->
-          <div class="modal-header">
-              <h4 class="modal-title">Your Shoping Cart</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <!-- Modal body -->
-          <div class="modal-body">
-              <table class="table table-striped table-inverse">
-
-                  <thead class="thead-inverse">
-                      <tr>
-                        <th>ID.</th>
-                        <th>ต้นทาง</th>
-                        <th>ปลายทาง</th>
-                        <th>ราคา</th>
-                        <th>print</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr *ngFor="let item of cart; index as i">
-                        <td scope="row">{{item.id}}</td>
-                        <td>{{item.start}}</td>
-                        <td>{{item.finish}}</td>
-                        <td>{{item.price}}</td>
-                        <td><a class="btn btn-outline-primary" role="button"  >Print</a></td>
-                      </tr>
-                  </tbody>
-              </table>
-              <p class="text-right">
-                  <b>Subtotal: </b> {{getSumPrice()}}
-              </p>
-          </div>
-          <!-- Modal footer -->
-          <div class="modal-footer">
-
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-          </div>
-      </div>
-  </div>
-</div>
-<!-- The Modal -->
-
-
