@@ -11,6 +11,7 @@ export class GetplaneService {
   flight : any;
   seat:any;
   ssid:string
+  someFlight:any
   constructor(private http: HttpClient) { }
 
   getFlight(){
@@ -46,5 +47,16 @@ export class GetplaneService {
       }
           return this.seat;
       }));
+    }
+  findFlight(start:string,finish:string){
+    const url = 'http://localhost:3000/flight/'+start+'/'+finish;
+    return this.http.get(`${url}`).pipe(map(data => {
+      if (data) {
+          this.someFlight = data
+          console.log(data);
+      }
+          return this.someFlight;
+      }));
   }
+  
 }

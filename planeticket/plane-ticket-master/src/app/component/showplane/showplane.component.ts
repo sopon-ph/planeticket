@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { NgbDateStruct,NgbCalendar } from '@ng-bootstrap/ng-bootstrap'
 
 import{ BuyseatComponent } from '../buyseat/buyseat.component'
+import{FlightdataComponent} from '../flightdata/flightdata.component'
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-showplane',
@@ -13,70 +15,41 @@ import{ BuyseatComponent } from '../buyseat/buyseat.component'
 })
 export class ShowplaneComponent implements OnInit {
 
-  @ViewChild(BuyseatComponent)
-  buyseat:BuyseatComponent
-  data : any
-  Tstatus : boolean = true
-  Fstatus: boolean = false
-  fnum:number
-  model:NgbDateStruct;
-  date:{year:number,month:number};
-  flight: any
+  @ViewChild(FlightdataComponent)
+  getFlight:FlightdataComponent
+  astatus : boolean = false
+  aflight: any
+  start:string = ''
+  finish:string = ''
+
+
   constructor(private getPlaneService : GetplaneService,public local: LocalStorageService,private router: Router,private calendar:NgbCalendar) { 
-    this.onLoading();
+
   }
 
   ngOnInit(): void {
   }
-  onLoading(){
-    
-    try {
-        this.getPlaneService.getFlight().subscribe (
+
+  find(){{
+          try {
+        this.getPlaneService.findFlight(this.start,this.finish).subscribe (
             data => {
-            this.flight = data;
+              this.aflight = data;
+              this.astatus = true 
+              
             },
             err => {
                 console.log(err)
+                alert("can't find data")
             });
-            
-    }catch (error) {
-        console.log(error)
-    }
-    
-  }
-
-  getPlane(){
-    return this.flight; 
-  }
-  usePlane(id:number){
-    try {
-      this.getPlaneService.getSome(this.flight[id].id).subscribe (
-          data => {
-          this.data = data;
-          },
-          err => {
-              console.log(err)
-          });
-             
-    }catch (error) {
-          console.log(error)
-    }
-    alert('on flight '+this.flight[id].id)
-    this.Tstatus = false
-    this.Fstatus = true
-    this.fnum = id
-}
-recieveData($e){
-    let num = $e;
-    this.getPlaneService.buySeat(this.data[num].id).subscribe (
-      data => {},
-      err => {});
-    //alert('Buy Complete On' +this.data[num].price+' Bath')
-    
-  }
-  backToShow(){
-    this.Tstatus = true
-    this.Fstatus = false
-  }
+               
+      }catch (error) {
+            console.log(error)
+            alert("can't find data")
+      }
+     
+    console.log(this.astatus)
+    console.log(this.aflight)
+  }}
 }  
   

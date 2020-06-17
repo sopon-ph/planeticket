@@ -6,11 +6,11 @@ const Flight = db.flight
 const Seat = db.seat
 
 const flightPlane = [
-    {id:1,start:"กทม",finish:"เชียงใหม่",price:1999},
-    {id:2,start:"กทม",finish:"เชียงใหม่",price:1999},
-    {id:3,start:"กทม",finish:"เชียงใหม่",price:1999},
-    {id:4,start:"กทม",finish:"เชียงใหม่",price:1999},
-    {id:5,start:"กทม",finish:"เชียงใหม่",price:1999},
+    {id:1,start:"bkk",finish:"phuket",price:1999},
+    {id:2,start:"yala",finish:"chiangmai",price:1999},
+    {id:3,start:"bkk",finish:"udontani",price:1999},
+    {id:4,start:"bkk",finish:"yala",price:1999},
+    {id:5,start:"udontani",finish:"bkk",price:1999},
   ]
 const seat = [
     {no:1,status:false,price:1500},
@@ -95,15 +95,26 @@ const getSeat =(id) => {
         }).sort({no:1})
     });
 }
-const fineOneSeat=(id) => {
+const findFlight =(start,finish) => {
     return new Promise ((resolve, reject) =>{
-    console.log('find seat')
-       Seat.find({id:Number(id)}, (err, data) => {
+    console.log('find '+start+' to '+finish)
+       Flight.find({start:start,finish:finish}, (err, data) => {
             if(err){
                 reject(new Error('Cannont get products!'));
             }else{
                 if(data){
-                    (data)
+                    resolve(data)
+                    // data.find({finish:finish}, (err, data) => {
+                    //     if(err){
+                    //         reject(new Error('Cannont get products!'));
+                    //     }else{
+                    //         if(data){
+                    //             resolve(data)
+                    //         }else{
+                    //             reject(new Error('Cannont get products!'));
+                    //         }
+                    //     } 
+                    // })
                 }else{
                     reject(new Error('Cannont get products!'));
                 }
@@ -111,6 +122,22 @@ const fineOneSeat=(id) => {
         })
     });
 }
+// const fineOneSeat=(id) => {
+//     return new Promise ((resolve, reject) =>{
+//     console.log('find seat')
+//        Seat.find({id:Number(id)}, (err, data) => {
+//             if(err){
+//                 reject(new Error('Cannont get products!'));
+//             }else{
+//                 if(data){
+//                     (data)
+//                 }else{
+//                     reject(new Error('Cannont get products!'));
+//                 }
+//             } 
+//         })
+//     });
+// }
 const buySeat =(id) => {
     return new Promise ((resolve, reject) =>{
     console.log('seat no'+id)
@@ -168,5 +195,15 @@ exports.buySeat = ( (req, res) => {
     .catch(err => {
         console.log(err);
     })
-    //res.status(500).send({ message: "Product was updated successfully." });
+});
+exports.getOneFlight = ( (req, res) => {
+    console.log('findFlight');
+    findFlight(req.params.start,req.params.finish)
+    .then(result => {
+        console.log(result);
+        res.status(200).json(result);
+    })
+    .catch(err => {
+        console.log(err);
+    })
 });

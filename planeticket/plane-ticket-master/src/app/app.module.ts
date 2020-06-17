@@ -16,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShowplaneComponent } from './component/showplane/showplane.component';
 import { BuyseatComponent } from './component/buyseat/buyseat.component';
 import { PromotionComponent } from './component/promotion/promotion.component';
+import { FlightdataComponent } from './component/flightdata/flightdata.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PromotionComponent } from './component/promotion/promotion.component';
     HomeComponent,
     ShowplaneComponent,
     BuyseatComponent,
-    PromotionComponent
+    PromotionComponent,
+    FlightdataComponent
   ],
   imports: [
     BrowserModule,
