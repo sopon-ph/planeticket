@@ -22,6 +22,9 @@ export class ShowplaneComponent implements OnInit {
   start:string = ''
   finish:string = ''
 
+  start1:string[] = ['bkk','yala','udontani']
+  finish1:string[] = ['phuket','chiangmai','udontani','yala','bkk']
+
 
   constructor(private getPlaneService : GetplaneService,public local: LocalStorageService,private router: Router,private calendar:NgbCalendar) { 
 

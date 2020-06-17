@@ -8,11 +8,15 @@
                 </div>
                 <div class="col-md-3 text-left">
                     <h5>ต้นทาง</h5>
-                    <input type="text" class="from-control" [(ngModel)] = "start">
+                    <select class="form-control" [(ngModel)] = "start">
+                        <option *ngFor="let item of start1" value="{{item}}">{{item}}</option>
+                    </select>
                 </div>
                 <div class="col-md-3 text-left">
                     <h5>ปลายทาง</h5>
-                    <input type="text" class="from-control" [(ngModel)]="finish" >
+                    <select class="form-control" [(ngModel)] = "finish">
+                        <option *ngFor="let item of finish1" value="{{item}}">{{item}}</option>
+                    </select>
                 </div>
                 
                 <div class="col-md-3 text-left">
