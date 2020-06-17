@@ -70,8 +70,11 @@ recieveData($e){
       data => {},
       err => {});
     //alert('Buy Complete On' +this.data[num].price+' Bath')
+    
+  }
+  backToShow(){
     this.Tstatus = true
     this.Fstatus = false
   }
-}    
+}  
   

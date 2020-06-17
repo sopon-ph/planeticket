@@ -22,7 +22,11 @@
             </tr>
         </tbody>
     </table>
-    <app-buyseat [flight]="data" (messege) = "recieveData($event)" *ngIf = "Fstatus"></app-buyseat>
+    <app-buyseat [flight]="data" (messege) = "recieveData($event)" *ngIf = "Fstatus"></app-buyseat> 
+    <div class="col-md-10 text-right">
+        <br>
+        <button type="button" class="btn btn-sm btn-primary" *ngIf = "Fstatus" (click)="backToShow()">กลับ</button>
+    </div>
 </div>
 
  
