@@ -5,7 +5,7 @@
             <th>ID.</th>
             <th>ต้นทาง</th>
             <th>ปลายทาง</th>
-            <th>ราคา</th>
+            <th>Date</th>
             <th>ซื้อตั๋ว</th>
         </tr>
     </thead>
@@ -14,7 +14,7 @@
             <td scope="row">{{item.id}}</td>
             <td>{{item.start}}</td> 
             <td>{{item.finish}}</td>
-            <td>{{item.price}}</td>
+            <td>{{item.fdate}}</td>
             <td>
                 <a class="btn btn-outline-primary" role="button"  (click)="usePlane(i)" >
                     <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
@@ -27,4 +27,4 @@
     <br>
     <button type="button" class="btn btn-sm btn-primary" *ngIf = "Fstatus" (click)="backToShow()">กลับ</button>
 </div>
-</div>
+</div>  

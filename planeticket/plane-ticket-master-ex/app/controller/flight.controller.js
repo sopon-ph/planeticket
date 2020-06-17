@@ -7,11 +7,11 @@ const Seat = db.seat
 const Pro = db.promo
 
 const flightPlane = [
-    {id:1,start:"bkk",finish:"phuket",price:1999},
-    {id:2,start:"yala",finish:"chiangmai",price:1999},
-    {id:3,start:"bkk",finish:"udontani",price:1999},
-    {id:4,start:"bkk",finish:"yala",price:1999},
-    {id:5,start:"udontani",finish:"bkk",price:1999},
+    {id:1,start:"bkk",finish:"phuket",price:1999,fdate:"19/6/2563 10:30"},
+    {id:2,start:"yala",finish:"chiangmai",price:1999,fdate:"19/6/2563 19:0"},
+    {id:3,start:"bkk",finish:"udontani",price:1999,fdate:"19/6/2563 12:45"},
+    {id:4,start:"bkk",finish:"yala",price:1999,fdate:"19/6/2563 10:00"},
+    {id:5,start:"udontani",finish:"bkk",price:1999,fdate:"19/6/2563 15:20"},
   ]
 const seat = [
     {no:1,status:false,price:1500},
@@ -40,7 +40,8 @@ exports.create = (status) => {
         const new_flight = new Flight({
             id : flightPlane[i].id,
             start : flightPlane[i].start,
-            finish : flightPlane[i].finish
+            finish : flightPlane[i].finish,
+            fdate : flightPlane[i].fdate
         });
         new_flight.save(new_flight).catch(err =>{
             console.log(err)
