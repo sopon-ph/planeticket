@@ -151,7 +151,22 @@ exports.update = (req, res) => {
             });
         });
 };
-
+const getUser = (user) => {
+    return new Promise ((resolve, reject) =>{
+    console.log('find username '+user)
+       Register.find({usernameco:user}, (err, data) => {
+            if(err){
+                reject(new Error('Cannont get products!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannont get products!'));
+                }
+            } 
+        }).sort({no:1})
+    });
+}
 // Delete a Register with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
@@ -174,3 +189,14 @@ exports.delete = (req, res) => {
             });
         });
 };
+exports.getProflie = ( (req, res) => {
+    console.log('findUser');
+    getUser(req.params.username)
+    .then(result => {
+        console.log(result);
+        res.status(200).json(result);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+});

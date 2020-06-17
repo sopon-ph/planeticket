@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
 
 const baseUrl = 'http://localhost:3000/api/register';
 const baseUrLogin = 'http://localhost:3000/api/register/login';
@@ -7,7 +8,7 @@ const baseUrLogin = 'http://localhost:3000/api/register/login';
   providedIn: 'root'
 })
 export class SingupService {
-
+  pro:any
   constructor(private http: HttpClient) { }
  
   getAll() {
@@ -37,6 +38,16 @@ export class SingupService {
   findByUser(username, password) {
     console.log(username+", "+password);
     return this.http.get(`${baseUrl}/${username}/${password}`);
+  }
+  getUser(user:string){
+    const url = 'http://localhost:3000/api/register/user/get/'+user;
+    return this.http.get(`${url}`).pipe(map(data => {
+      if (data) {
+          this.pro = data
+          console.log(data);
+      }
+          return this.pro;
+      }));
   }
 }
 

@@ -23,7 +23,7 @@ export class AnvbarComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  }
+  } 
   Logout(){
     this.local.remove('customer');
     this.router.navigate(['/login']);

@@ -5,7 +5,21 @@
 </div>
 <div class="card">
     <div class="card-body">
-<table class="table table-striped table-inverse" >
+        <div class="media">
+            <img [src]="img" style="height:130px;" alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0 font-weight-bold">{{getUsername()}}</h5>
+              <p>name : {{name}}</p>
+              <p>sex : {{sex}} </p>
+              <p>email : {{email}}</p>
+              <p>Phone : {{phone}}</p>
+              <p>Province : {{Hnum}} {{parish}}  {{district}} {{Province}} {{zip}}</p>
+              <!-- <p>district : {{district}}</p>
+              <p>parish : </p>
+              <p>zip : {{zip}}</p> -->
+            </div>
+          </div>
+<!-- <table class="table table-striped table-inverse" >
     <thead class="thead-inverse">
         <tr>
             <th></th>
@@ -24,5 +38,5 @@
         </tr>
     </thead>
     
-</table>
+</table> -->
 </div></div>

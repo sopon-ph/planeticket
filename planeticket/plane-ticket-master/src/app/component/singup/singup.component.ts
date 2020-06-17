@@ -94,4 +94,5 @@ export class SingupComponent implements OnInit {
     this.registerForm.reset();
     this.previewLoaded = false;
   }
+  
 }
