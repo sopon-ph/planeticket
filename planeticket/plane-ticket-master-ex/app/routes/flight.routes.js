@@ -9,6 +9,7 @@ module.exports = app => {
     // Retrieve all Tutorials
     router.get("/get", flight.findAll); 
     router.get('/seat/:id',flight.findSeat);
+    router.put('/seat',flight.buySeat);
 
     // Retrieve a single Tutorial with id
     //router.get("/:username/:password", register.findUsername);

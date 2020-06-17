@@ -16,7 +16,7 @@ expressApp.use(bodyParser.json());
 
 expressApp.use(bodyParser.urlencoded({ extended: true }));
 
-// expressApp.use((req, res, next) => {
+// expressApp.use( (req, res, next) => {
 //     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200')
 //     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS')
 //     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Options, Authorization')
@@ -48,7 +48,6 @@ const getTheResult = async() => {
 }
 
 require('./app/routes/flight.routes')(expressApp);
-
 require("./app/routes/register.routes")(expressApp);
 expressApp.listen(3000, function() {
     console.log('Listening on port 3000');

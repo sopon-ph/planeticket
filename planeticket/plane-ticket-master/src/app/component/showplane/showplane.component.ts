@@ -56,18 +56,18 @@ export class ShowplaneComponent implements OnInit {
               console.log(err)
           });
              
-  }catch (error) {
-      console.log(error)
-  }
+    }catch (error) {
+          console.log(error)
+    }
     alert('on flight '+this.flight[id].id)
     this.Tstatus = false
     this.Fstatus = true
     this.fnum = id
-  }
-  recieveData($e){
-    let num = $e;  
-    this.getPlaneService.flight[this.fnum].seat[num].status = true
-    alert('Buy Complete On' +this.data.price +' Bath')
+}
+recieveData($e){
+    let num = $e;
+    this.getPlaneService.buySeat(this.data[num].id)
+    //alert('Buy Complete On' +this.data[num].price+' Bath')
     this.Tstatus = true
     this.Fstatus = false
   }

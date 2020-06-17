@@ -9,7 +9,6 @@ import { CartService } from 'src/app/service/cart.service';
 export class BuyseatComponent implements OnInit {
   @Input() flight : any
   seatnum : number
-  Seat:any;
   @Output() messege = new EventEmitter<number>();
   constructor(private cartService: CartService) { } 
 
@@ -18,12 +17,12 @@ export class BuyseatComponent implements OnInit {
   getSeat(){
     return this.flight;
   }
-  checkSeat(i:number){
-    let seatStatus = this.flight.seat[i].status
-  }
+  //checkSeat(i:number){
+    //let seatStatus = this.flight.seat[i].status
+ // }
   buyTicket(id: number){
-    this.seatnum = id
-    //this.messege.emit(this.seatnum);
+    
+    this.messege.emit(id);
     //this.cartService.add(id);
   }
 

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 const urls = 'http://localhost:3000/flight/seat';
+//const urlst = 'http://localhost:3000/flight/seat/status';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,5 +35,13 @@ export class GetplaneService {
       }
           return this.seat;
       }));
+  }
+  buySeat(s_id:number){
+    alert('id '+s_id)
+    let ssid = {
+      s_id:s_id
+    }
+    return this.http.put(`${urls}`,ssid)
+   
   }
 }

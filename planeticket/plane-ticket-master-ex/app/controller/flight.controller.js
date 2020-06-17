@@ -25,6 +25,7 @@ const seat = [
     {no:10,status:false,price:1500}
 ]
 exports.create = (status) => {
+    let s_id = 1;
     for (let i = 0; i < flightPlane.length; i++) {
         const new_flight = new Flight({
             id : flightPlane[i].id,
@@ -37,6 +38,7 @@ exports.create = (status) => {
 
         for(let x = 0 ; x < seat.length ; x++){
             const newSeat = new Seat({
+                id: s_id,
                 no : seat[x].no,
                 status:seat[x].status,
                 price:seat[x].price,
@@ -45,6 +47,7 @@ exports.create = (status) => {
             newSeat.save(newSeat).catch(err =>{
                 console.log(err)
             })
+            s_id ++
         }
     }
 
@@ -59,7 +62,7 @@ exports.deleteAll = () => {
     Seat.deleteMany({})
     .then(data => {})
     .catch(err => {});
-    return true;
+    return true;   
 };
 const getFlight =() => {
     return new Promise ((resolve, reject) =>{
@@ -88,8 +91,39 @@ const getSeat =(id) => {
                 }else{
                     reject(new Error('Cannont get products!'));
                 }
-            }
+            } 
         }).sort({no:1})
+    });
+}
+const fineOneSeat=(id) => {
+    return new Promise ((resolve, reject) =>{
+    console.log('find seat')
+       Seat.find({id:Number(id)}, (err, data) => {
+            if(err){
+                reject(new Error('Cannont get products!'));
+            }else{
+                if(data){
+                    (data)
+                }else{
+                    reject(new Error('Cannont get products!'));
+                }
+            } 
+        })
+    });
+}
+const buySeat =(id) => {
+    return new Promise ((resolve, reject) =>{
+    console.log('seat no'+id)
+       Seat.updateOne({id:Number(id)}, { $set: {status:true} }, function(err, res) {
+        if (err) throw err;
+        console.log("1 document updated");
+        
+        //res.sent('complete')
+        //resolve([])
+        //fineOneSeat(id);
+        //db.close();
+      });
+
     });
 }
 exports.findAll = ( (req, res) => {
@@ -113,4 +147,9 @@ exports.findSeat = ( (req, res) => {
         .catch(err => {
             console.log(err);
         })
+});
+exports.buySeat = ( (req, res) => {
+    console.log('changeStatusSeat');
+    buySeat(req.body.s_id)
+    res.status(500).send({ message: "Product was updated successfully." });
 });
