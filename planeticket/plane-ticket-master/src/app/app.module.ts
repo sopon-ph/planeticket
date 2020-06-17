@@ -12,10 +12,10 @@ import { LoginComponent } from './component/login/login.component';
 import { AnvbarComponent } from './component/anvbar/anvbar.component';
 import { SingupComponent } from './component/singup/singup.component';
 import { HomeComponent } from './component/home/home.component';
-import { SearchComponent } from './component/search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShowplaneComponent } from './component/showplane/showplane.component';
 import { BuyseatComponent } from './component/buyseat/buyseat.component';
+import { PromotionComponent } from './component/promotion/promotion.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import { BuyseatComponent } from './component/buyseat/buyseat.component';
     AnvbarComponent,
     SingupComponent,
     HomeComponent,
-    SearchComponent,
     ShowplaneComponent,
-    BuyseatComponent
+    BuyseatComponent,
+    PromotionComponent
   ],
   imports: [
     BrowserModule,

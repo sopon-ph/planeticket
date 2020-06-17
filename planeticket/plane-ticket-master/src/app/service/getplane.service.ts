@@ -42,7 +42,7 @@ export class GetplaneService {
     return this.http.get(`${urlst}/${this.ssid}`).pipe(map(data => {
       if (data) {
           console.log(this.seat);
-          alert("success!")
+         // alert("success!")
       }
           return this.seat;
       }));

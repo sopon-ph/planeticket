@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {GetplaneService } from '../../service/getplane.service'
 import { LocalStorageService } from 'angular-web-storage';
 import { Router } from '@angular/router';
+import { NgbDateStruct,NgbCalendar } from '@ng-bootstrap/ng-bootstrap'
 
 import{ BuyseatComponent } from '../buyseat/buyseat.component'
 
@@ -18,9 +19,10 @@ export class ShowplaneComponent implements OnInit {
   Tstatus : boolean = true
   Fstatus: boolean = false
   fnum:number
-
+  model:NgbDateStruct;
+  date:{year:number,month:number};
   flight: any
-  constructor(private getPlaneService : GetplaneService,public local: LocalStorageService,private router: Router) { 
+  constructor(private getPlaneService : GetplaneService,public local: LocalStorageService,private router: Router,private calendar:NgbCalendar) { 
     this.onLoading();
   }
 

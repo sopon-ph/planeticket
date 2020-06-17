@@ -12,7 +12,7 @@
                 <td scope="row">{{item.no}}</td>
                 <td>{{item.status? 'sold out':'on sell'}}</td>
                 <td>
-                    <a class="btn btn-outline-primary" role="button" *ngIf  = "!item.status" (click)="buyTicket(i)">
+                    <a class="btn btn-outline-primary" role="button" data-toggle="modal" data-target="#promo" *ngIf  = "!item.status" (click)="buyTicket(i)">
                         <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                     <a class="btn btn-outline-primary" role="button" *ngIf  = "item.status">
                         Sold out</a>
@@ -21,3 +21,4 @@
         </tbody>
     </table>
 </div>   
+
