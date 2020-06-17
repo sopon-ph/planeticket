@@ -17,6 +17,7 @@ import { ShowplaneComponent } from './component/showplane/showplane.component';
 import { BuyseatComponent } from './component/buyseat/buyseat.component';
 import { PromotionComponent } from './component/promotion/promotion.component';
 import { FlightdataComponent } from './component/flightdata/flightdata.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FlightdataComponent } from './component/flightdata/flightdata.component
     ShowplaneComponent,
     BuyseatComponent,
     PromotionComponent,
-    FlightdataComponent
+    FlightdataComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
