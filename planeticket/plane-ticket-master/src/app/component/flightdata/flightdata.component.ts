@@ -54,6 +54,8 @@ recieveData($e){
     this.getPlaneService.buySeat(this.data[num].id).subscribe (
       data => {},
       err => {});
+    this.Tstatus = true
+    this.Fstatus = false
     //alert('Buy Complete On' +this.data[num].price+' Bath')
     
   }

@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const db = require("../models");
 const Flight = db.flight
 const Seat = db.seat
+const Pro = db.promo
 
 const flightPlane = [
     {id:1,start:"bkk",finish:"phuket",price:1999},
@@ -23,6 +24,15 @@ const seat = [
     {no:8,status:false,price:1500},
     {no:9,status:false,price:1500},
     {no:10,status:false,price:1500}
+]
+const pro = [
+    {code:"rich01",discount:200},
+    {code:"rich02",discount:300},
+    {code:"rich03",discount:400},
+    {code:"rich04",discount:500},
+    {code:"rich05",discount:600},
+    {code:"rich06",discount:700},
+    {code:"rich07",discount:800},
 ]
 exports.create = (status) => {
     let s_id = 1;
@@ -50,6 +60,16 @@ exports.create = (status) => {
             s_id ++
         }
     }
+    for (let i=0;i<pro.length;i++){
+        const newPro = new Pro({
+            id:i,
+            code:pro[i].code,
+            discount:pro[i].discount
+        });
+        newPro.save(newPro).catch(err =>{
+            console.log(err)
+        })
+    }
 
     return ({ status: "ready" });
 
@@ -60,6 +80,9 @@ exports.deleteAll = () => {
         .then(data => {})
         .catch(err => {}),
     Seat.deleteMany({})
+    .then(data => {})
+    .catch(err => {}),
+    Pro.deleteMany({})
     .then(data => {})
     .catch(err => {});
     return true;   
@@ -104,17 +127,6 @@ const findFlight =(start,finish) => {
             }else{
                 if(data){
                     resolve(data)
-                    // data.find({finish:finish}, (err, data) => {
-                    //     if(err){
-                    //         reject(new Error('Cannont get products!'));
-                    //     }else{
-                    //         if(data){
-                    //             resolve(data)
-                    //         }else{
-                    //             reject(new Error('Cannont get products!'));
-                    //         }
-                    //     } 
-                    // })
                 }else{
                     reject(new Error('Cannont get products!'));
                 }
@@ -122,22 +134,6 @@ const findFlight =(start,finish) => {
         })
     });
 }
-// const fineOneSeat=(id) => {
-//     return new Promise ((resolve, reject) =>{
-//     console.log('find seat')
-//        Seat.find({id:Number(id)}, (err, data) => {
-//             if(err){
-//                 reject(new Error('Cannont get products!'));
-//             }else{
-//                 if(data){
-//                     (data)
-//                 }else{
-//                     reject(new Error('Cannont get products!'));
-//                 }
-//             } 
-//         })
-//     });
-// }
 const buySeat =(id) => {
     return new Promise ((resolve, reject) =>{
     console.log('seat no'+id)
@@ -155,12 +151,24 @@ const buySeat =(id) => {
                 }
             } 
         })
-        //res.sent('complete')
-        //resolve([])
-        //fineOneSeat(id);
-        //db.close();
       });
 
+    });
+}
+const getPro = (scode) => {
+    return new Promise ((resolve, reject) =>{
+    console.log('find code '+scode)
+       Pro.find({code:scode}, (err, data) => {
+            if(err){
+                reject(new Error('Cannont get products!'));
+            }else{
+                if(data){
+                    resolve(data)
+                }else{
+                    reject(new Error('Cannont get products!'));
+                }
+            } 
+        }).sort({no:1})
     });
 }
 exports.findAll = ( (req, res) => {
@@ -195,6 +203,17 @@ exports.buySeat = ( (req, res) => {
     .catch(err => {
         console.log(err);
     })
+});
+exports.checkPro = ( (req, res) => {
+    console.log('checkPromotion');
+    getPro(req.params.code)
+        .then(result => {
+            console.log(result);
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 });
 exports.getOneFlight = ( (req, res) => {
     console.log('findFlight');

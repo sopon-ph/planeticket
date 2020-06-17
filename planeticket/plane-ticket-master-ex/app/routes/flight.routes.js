@@ -11,6 +11,7 @@ module.exports = app => {
     router.get('/seat/:id',flight.findSeat);
     router.get('/status/:id',flight.buySeat);
     router.get('/:start/:finish',flight.getOneFlight);
+    router.get('/check/pro/:code',flight.checkPro)
 
     // Retrieve a single Tutorial with id
     //router.get("/:username/:password", register.findUsername);

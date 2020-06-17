@@ -12,6 +12,7 @@ export class GetplaneService {
   seat:any;
   ssid:string
   someFlight:any
+  pro:any
   constructor(private http: HttpClient) { }
 
   getFlight(){
@@ -56,6 +57,16 @@ export class GetplaneService {
           console.log(data);
       }
           return this.someFlight;
+      }));
+  }
+  checkPro(code:string){
+    const url = 'http://localhost:3000/flight/check/pro/'+code;
+    return this.http.get(`${url}`).pipe(map(data => {
+      if (data) {
+          this.pro = data
+          console.log(data);
+      }
+          return this.pro;
       }));
   }
   

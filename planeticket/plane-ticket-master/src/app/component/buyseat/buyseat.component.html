@@ -17,8 +17,42 @@
                     <a class="btn btn-outline-primary" role="button" *ngIf  = "item.status">
                         Sold out</a>
                 </td>
-            </tr>
+            </tr> 
         </tbody>
     </table>
-</div>   
+</div>  
+
+<!-- The Modal -->
+<div class="modal fade" id="promo">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">ยืนยันการซื้อ</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div >
+                <h5>รหัสส่วนลด</h5>
+                <input type="text" class="from-control" [(ngModel)] = "code" >
+            </div>
+            <br>
+            <div >
+                <button type="button" class="btn btn-sm btn-primary" (click)="ckeckPro()">ค้นหา</button>
+            </div>
+            <br>
+            <div >
+                <h5>ราคา : {{price}} บาท</h5> 
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="buy()" >ยืนยัน</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" >close</button>
+  
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- The Modal -->
 
