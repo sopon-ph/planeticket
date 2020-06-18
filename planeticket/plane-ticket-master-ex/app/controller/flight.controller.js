@@ -19,6 +19,21 @@ const flightPlane = [
     {id:10,start:"chiangmai",finish:"yala",price:1999,fdate:"28/6/2563 15:00"},
     {id:11,start:"chiangmai",finish:"udontani",price:1999,fdate:"29/6/2563 15:23"},
     {id:12,start:"chiangmai",finish:"bkk",price:1999,fdate:"30/6/2563 16:00"},
+    {id:13,start:"bkk",finish:"yala",price:1999,fdate:"19/6/2563 10:30"},
+    {id:14,start:"bkk",finish:"chiangmai",price:1999,fdate:"20/6/2563 12:00"},
+    {id:15,start:"bkk",finish:"udontani",price:1999,fdate:"21/6/2563 12:30"},
+    {id:16,start:"bkk",finish:"yala",price:1999,fdate:"19/6/2563 11:30"},
+    {id:17,start:"bkk",finish:"chiangmai",price:1999,fdate:"20/6/2563 13:00"},
+    {id:18,start:"bkk",finish:"udontani",price:1999,fdate:"21/6/2563 13:30"},
+    {id:19,start:"yala",finish:"chiangmai",price:1999,fdate:"23/6/2563 13:30"},
+    {id:20,start:"yala",finish:"udontani",price:1999,fdate:"24/6/2563 14:00"},
+    {id:21,start:"udontani",finish:"yala",price:1999,fdate:"25/6/2563 15:30"},
+    {id:21,start:"udontani",finish:"chiangmai",price:1999,fdate:"26/6/2563 16:00"},
+    {id:22,start:"chiangmai",finish:"yala",price:1999,fdate:"28/6/2563 14:00"},
+    {id:23,start:"chiangmai",finish:"udontani",price:1999,fdate:"29/6/2563 16:23"},
+    {id:24,start:"chiangmai",finish:"bkk",price:1999,fdate:"30/6/2563 12:00"},
+    
+    
   ]
 const seat = [
     {no:1,status:false,price:1500},
